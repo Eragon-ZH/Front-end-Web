@@ -6,39 +6,89 @@
 </head>
 <body>
     <style type="text/css">
-        body {
+        body{
+            width: 700px;
+            margin: auto;
+        }
+        .attr {
+            border: solid 2px #666666
+            width:250px;
+            height: auto;
+            padding: 20px;
+            color: gray;
             background-color: #222222;
-            /* width: 250px; */
+            margin-top:5px;
+        }
+        .histry{
+            color: white;
+            background-color: gray;
+            padding: 20px;
+            margin-top: 5px;
+        }
+        .contact {
+            background-color: rgb(4, 25, 32);
+            padding: 20px;
+            margin-top: 5px;
+        }
+        .contact P{
+            color: rgb(170, 166, 177)
         }
         p {
             border: solid 2px #666666;
             border-radius: 10px;
-            color: white;
-            width: 250px;
+            width: 260px;
             height: 40px;
-            margin: 1px auto;
-            padding: 1px 50px;
+            line-height: 40px;
+            text-align: left;
+            margin: 5px auto;
+            padding: 0px 50px;
+            font-weight: bold;
         }
-        ul {
+        a {
+            text-decoration: none;
+        }
+        a:hover{
+            color: red;
+        }
+        .attr p{
+            text-indent: 1em;
+        }
+        ol,ul {
             border: solid 2px #999999;
             border-radius: 10px;
-            color: gray;
             width: 280px;
             height: auto;
             margin: 1px auto;
             padding: 1px 50px;
         }
+        li {
+            line-height: 150%;
+            padding:5px;
+        }
     </style>
-    <!-- <h1>简历</h1> -->
+    <div class="attr">
     <p>姓名：张三</p>
     <p>年龄：18</p>
     <p>学校：霍格沃兹</p>
     <p>专业：黑魔法防御</p>
-    <p>邮箱：<a href="someone@example.com">邮箱地址</a></p>
-    <p><span>项目经历：</span></p>
+    <p>邮箱：<a href="someone@example.com">发送邮件</a></p>
+    </div>
+    <div class="histry">
+        <p>擅长科目：</p>
         <ul>
-            <li>项目A：击败食死徒*4 <br>&nbsp; &nbsp; &nbsp; &nbsp; 时间：2017年3月~2017年5月</li>
-            <li>项目B：赢得院级魁地奇杯冠军 <br>&nbsp; &nbsp;&nbsp; &nbsp;  时间：2016年6月</li>
-            <li>项目C：战胜哈利·波特 <br>&nbsp; &nbsp; &nbsp; &nbsp; 时间：2018年3月</li>
+            <li>草药学</li>
+            <li>变形术</li>
+            <li>夺魂术</li>
         </ul>
+        <p>项目经历：</p>
+        <ol>
+            <li>项目：击败食死徒*4<br>&nbsp; &nbsp; &nbsp; &nbsp;时间：2017年3月~2017年5月</li>
+            <li>项目：赢得院级魁地奇杯冠军<br>&nbsp; &nbsp;&nbsp; &nbsp;时间：2016年6月</li>
+            <li>项目：战胜哈利·波特<br>&nbsp; &nbsp; &nbsp; &nbsp;时间：2018年3月</li>
+        </ol>
+    </div>
+    <div class="contact">
+        <p> 联系方式：</p>
+        <p>用头大力撞向九又四分之三站台即可</p>
+    </div>
 </html>
