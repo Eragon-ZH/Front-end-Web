@@ -1,0 +1,17 @@
+.family {
+    font-size: 24px;
+    font-weight: 600;
+    height: 60px;
+}
+.key, .key1 {
+    font-weight: 700;
+}
+.value, .value1 {
+    margin-right: 30px;
+}
+.key1, .value1{
+    display: block;
+}
+.value1 {
+    margin-bottom: 10px;
+}

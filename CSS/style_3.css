@@ -1,0 +1,48 @@
+.resume {
+    width: 1000px;
+    height: 40px;
+    background-color: #7d7d7d;
+    color: white;
+    padding: 8px 20px;
+}
+h1 {
+    text-align: left;
+    font-size: 14px;
+}
+.family {
+    height: 100px;
+    width: 100px;
+    background-color: #c8c8c8;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 1px;
+    float: left;
+    clear: left;
+}
+p {
+    height: 100%;
+    line-height: 100px;
+    font-weight: 700;
+    margin: 0 auto;
+}
+.content {
+    width: 928px;
+    height: 89px;
+    border: solid 1px #c8c8c8;
+    float: left;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.key, .key1 {
+    font-weight: 700;
+}
+.value, .value1 {
+    margin-right: 30px;
+}
+.key1, .value1{
+    float: left;
+}
+.key1 {
+    clear: left;
+}

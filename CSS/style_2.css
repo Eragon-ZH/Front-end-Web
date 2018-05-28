@@ -1,0 +1,35 @@
+.resume {
+    width: 180px;
+    height: 830px;
+    border: solid 1px;
+    background-color: #5985db;
+    float: left;
+    color: white;
+    text-align: center;
+}
+h1 {
+    margin-top: 50px;
+}
+.detail {
+    margin-left: 15px;
+    float: left;
+}
+.family {
+    font-size: 28px;
+    font-weight: 600;
+    height: 60px;
+}
+.key, .key1 {
+    font-weight: 700;
+    font-size: 18px;
+}
+.value, .value1 {
+    margin-right: 30px;
+    font-size: 18px;
+}
+.key1, .value1{
+    display: block;
+}
+.value1 {
+    margin-bottom: 10px;
+}
