@@ -10,7 +10,7 @@
             width: 700px;
             margin: auto;
         }
-        .attr {
+        div.attr {
             border: solid 2px #666666
             width:250px;
             height: auto;
@@ -19,18 +19,18 @@
             background-color: #222222;
             margin-top:5px;
         }
-        .histry{
+        div.history {
             color: white;
             background-color: gray;
             padding: 20px;
             margin-top: 5px;
         }
-        .contact {
+        div.contact {
             background-color: rgb(4, 25, 32);
             padding: 20px;
             margin-top: 5px;
         }
-        .contact P{
+        div.contact P{
             color: rgb(170, 166, 177)
         }
         p {
@@ -47,8 +47,17 @@
         a {
             text-decoration: none;
         }
+        a:link {
+            color:yellow;
+        }
+        a:visited{
+            color: white;
+        }
         a:hover{
-            color: red;
+            color: gray;
+        }
+        a:active{
+            color:blue;
         }
         .attr p{
             text-indent: 1em;
@@ -61,21 +70,58 @@
             margin: 1px auto;
             padding: 1px 50px;
         }
-        li {
+        .history li {
             line-height: 150%;
             padding:5px;
         }
+        div.navi {
+            color: white;
+            border: solid 2px;
+            padding: 20px;
+            margin-top: 5px;
+            background-color: #292626
+        }
+        ul.navi{
+            list-style-type: none;
+            margin: 0px auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        ul.navi li{
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 12px 12px;
+            text-decoration: none;
+        }
+        span.content {
+            color: white;
+        }
     </style>
-    <div class="attr">
-    <p>姓名：张三</p>
-    <p>年龄：18</p>
-    <p>学校：霍格沃兹</p>
-    <p>专业：黑魔法防御</p>
-    <p>邮箱：<a href="someone@example.com">发送邮件</a></p>
+    <div class="navi">
+        <ul class="navi">
+            <li><a href="#attr">个人资料</a></li>
+            <li><a href="#history">项目经历</a></li>
+            <li><a href="#contact">联系方式</a></li>
+        </ul>
     </div>
-    <div class="histry">
+    <div class="attr">
+        <a name="attr"></a>
+        <p>姓名：Dovahkiin</p>
+        <p>年龄：18</p>
+        <p>学校：霍格沃兹</p>
+        <p>专业：黑魔法防御</p>
+        <p>邮箱：<a href="someone@example.com">发送邮件</a></p>
+        <p>个人主页：<a href="http://www.baidu.com">点击访问</a></p>
+    </div>
+    <div class="history">
+        <a name="history"></a>
         <p>擅长科目：</p>
-        <ul>
+        <ul class="history">
             <li>草药学</li>
             <li>变形术</li>
             <li>夺魂术</li>
@@ -88,7 +134,16 @@
         </ol>
     </div>
     <div class="contact">
+        <a name="contact"></a>
         <p> 联系方式：</p>
         <p>用头大力撞向九又四分之三站台即可</p>
+    </div>
+    <div class="content" style="color:white;text-align:center;background-color:rgb(2, 17, 22);height:900px;margin-top: 10px;">
+            <br>
+            <br>
+            <br>
+            这里是无意义的填充内容<br>
+            这里是无意义的填充内容<br>
+            这里是无意义的填充内容<br>
     </div>
 </html>
