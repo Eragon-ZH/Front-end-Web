@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #333333;
+    height: 70px;
+}
+.box {
+    width: 960px;
+    margin: 0 auto;
+    color: white;
+}
+.logo {
+    float: left;
+    font-size: 22px;
+    line-height: 60px;
+}
+.login {
+    float: right;
+}
+.login a {
+    color: white;
+}
+.banner {
+    height: 250px;
+    background-color: #66bb34;
+}
+.box1 {
+    width: 960px;
+    height: 250px;
+    margin: 0 auto;
+    position: relative;
+}
+.number {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+.number span.notnow {
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 35px;
+    line-height: 35px;
+    border: solid 1px black;
+    background-color: #66bb34;
+    margin-right: 5px;
+}
+.now {
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 50px;
+    line-height: 65px;
+    border: solid 1px black;
+    background-color: RGB(224,214,214);
+    margin-right: 5px;
+}
+div.nav {
+    border-bottom: solid 1px gray;
+    height: 69px;
+}
+.box2 {
+    width: 960px;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.box2 a {
+    height: 35px;
+    width: 80px;
+    text-align: center;
+    color: black;
+    padding-top: 10px;
+    border: solid 1px gray;
+    border-radius: 10px 10px 0 0;
+    /* border-bottom: white; */
+    color: black;
+    text-decoration: none;
+    background-color: #eeeeee;
+}
+.box2 a:focus,
+.box2 a:hover {
+    border-bottom: gray;
+    background-color: white;
+}
+.box2 a:active {
+    border-bottom: gray;
+    background-color: white;
+}
+.box3 {
+    height: 500px;
+    width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: black
+}
+.box3 div {
+    height: 150px;
+    margin: 5px;
+    text-align: center;
+    line-height: 150px;
+    border: solid 1px #eeeeee;
+}
+.item1,
+.item2,
+.item3 {
+    width: 290px;
+}
+.item4,
+.item6 {
+    width: 200px;
+}
+.item5,
+.item7 {
+    width: 250px;
+}
+.item8,
+.item9 {
+    width: 300px;
+}
+.item10 {
+    width: 320px;
+}
+.footer {
+    height: 70px;
+    width: 100%;
+    background-color: gray;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 70px;
+    /* position: fixed; */
+    bottom: 0;
+}
