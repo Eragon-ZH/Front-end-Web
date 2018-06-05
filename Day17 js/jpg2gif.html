@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style media="screen">
+        div {
+            background: url(erik.jpg) no-repeat 0 0;
+            height: 480px;
+            width: 480px;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+    <!-- 用定时器间隔一定时间将图片上达成动图效果 -->
+    <script type="text/javascript">
+        var div = document.querySelector("div");
+        var n = 0;
+        function change() {
+            n++;
+            div.style.backgroundPositionY = -n*480 + "px";
+            if ( n>15 ) {
+                n = 0;
+            }
+        }
+        setInterval(change,100);
+    </script>
+
+</body>
+</html>
