@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date&Time</title>
+</head>
+
+<body>
+
+    <select id="year-select" onchange="selectYear()"></select>年
+
+    <select id="month-select" onchange="selectMonth()"></select>月
+
+    <select id="day-select" onchange="selectDay()"></select>日
+
+    <select id="hour-select" onchange="selectHour()"></select>时
+
+    <select id="minute-select" onchange="selectMinute()"></select>分
+
+    <select id="second-select" onchange="selectSecond()"></select>秒
+
+    <p id="time"></p>
+    <p id="result-wrapper"></p>
+
+
+    <script type="text/javascript">
+        var yearSelect = document.getElementById("year-select");
+        var monthSelect = document.getElementById("month-select");
+        var daySelect = document.getElementById("day-select");
+        var hourSelect = document.getElementById("hour-select");
+        var minuteSelect = document.getElementById("minute-select");
+        var secondSelect = document.getElementById("second-select");
+        var resultWrapper = document.getElementById("result-wrapper");
+        var time = document.getElementById("time");
+        var mYear = 2000,
+            mMonth = 1,
+            mDay = 1,
+            mHour = 0,
+            mMin = 0,
+            mSec = 0;
+
+        // 创建选项
+        function creatOption() {
+            for ( var i=2000; i<2032; i++ ) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.innerHTML = i;
+                yearSelect.appendChild(option);
+            }
+            for ( var i=1; i<=12; i++ ) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.innerHTML = i;
+                monthSelect.appendChild(option);
+            }
+            for ( var i=0; i<=23; i++ ) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.innerHTML = i;
+                hourSelect.appendChild(option);
+            }for ( var i=0; i<=59; i++ ) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.innerHTML = i;
+                minuteSelect.appendChild(option);
+            }for ( var i=0; i<=59; i++ ) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.innerHTML = i;
+                secondSelect.appendChild(option);
+            }
+        }
+        creatOption();
+        // 改变年月时根据所选的年月确定日期数量
+        function creatDay() {
+            var day = new Date(mYear, mMonth, 0).getDate();
+            console.log(day);
+            daySelect.innerHTML = "";
+            for (var i = 1; i <= day; i++) {
+                var option = document.createElement("option")
+                option.value = i;
+                option.innerText = i;
+                if ( mDay == i ) {
+                    // console.log(mDay);
+                    option.selected = true;
+                }
+                daySelect.appendChild(option)
+            }
+        }
+
+        // 展示现在时间
+        function showTimeNow() {
+            var week = ["日", "一", "二", "三" ,"四", "五", "六"]
+            var now = new Date();
+            var y = now.getFullYear();
+            var mon = now.getMonth() + 1;
+            var d = now.getDate();
+            var w = now.getDay();
+            var h = now.getHours();
+            var min = now.getMinutes();
+            var s = now.getSeconds();
+            time.innerHTML = "现在是北京时间 "+y+"年"+mon+"月"+d+"日 "+"星期"+week[w]+" "+
+                h+"时"+min+"分"+s+"秒";
+            return
+        }
+
+        // 显示所选时间与现在的差值
+        function updateData() {
+            showTimeNow();
+            var selectTime = new Date(mYear, mMonth-1, mDay, mHour, mMin, mSec);
+            // console.log(selectTime);
+            var now = new Date();
+            var diff = selectTime - now;
+            console.log(diff);
+            if ( Math.abs(diff) < 1000 ) {
+                alert("到时间了！");
+            }
+            if ( diff < 0 ) {
+                diff = -diff;
+                var str = "现在距离 "+mYear+"年"+mMonth+"月"+mDay+"日 "+
+                    mHour+"时"+mMin+"分"+mSec+"秒 "+"已经过去 ";
+            }
+            else {
+                var str = "现在距离 "+mYear+"年"+mMonth+"月"+mDay+"日 "+
+                    mHour+"时"+mMin+"分"+mSec+"秒 "+"还有 ";
+            }
+            str += Math.floor(diff / 1000 / 60 / 60 / 24) + "天"
+                +Math.floor(diff / 1000 / 60 / 60 % 24) + "时"
+                +Math.floor(diff / 1000 / 60 % 60) + "分"
+                +Math.floor(diff / 1000 % 60) + "秒";
+            resultWrapper.innerHTML = str;
+        }
+
+        // 获取选中时间
+        function selectYear() {
+            var index = yearSelect.selectedIndex;
+            mYear = yearSelect.options[index].value;
+            creatDay();
+        }
+        function selectMonth() {
+            var index = monthSelect.selectedIndex;
+            mMonth = monthSelect.options[index].value;
+            creatDay();
+        }
+        function selectDay() {
+            var index = daySelect.selectedIndex;
+            mDay = daySelect.options[index].value;
+        }
+        function selectHour() {
+            var index = hourSelect.selectedIndex;
+            mHour = hourSelect.options[index].value;
+        }
+        function selectMinute() {
+            var index = minuteSelect.selectedIndex;
+            mMin = minuteSelect.options[index].value;
+        }
+        function selectSecond() {
+            var index = secondSelect.selectedIndex;
+            mSec = secondSelect.options[index].value;
+        }
+
+        // 循环执行
+        setInterval(updateData,500);
+
+    </script>
+
+</body>
+
+</html>
