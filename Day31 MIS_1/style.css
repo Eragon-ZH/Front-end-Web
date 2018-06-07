@@ -1,0 +1,17 @@
+#region-radio-wrapper {
+    display: inline;
+    float: left;
+    margin-right: 20px;
+}
+#product-radio-wrapper {
+    display: inline;
+}
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+td, th {
+    width: 80px;
+    height: 18px;
+    border: 1px solid rgba(0,0,0,0.3);
+}

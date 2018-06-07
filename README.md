@@ -2,6 +2,7 @@
 
 练习多来自百度前端技术学院：[IFE](http://ife.baidu.com/college/detail/id/5)
 
+
 静态页面练习
 [demo](https://eragon-zh.github.io/Front-end-Web/Day9%20static%20webpage/static%20webpage.html)
 
@@ -10,3 +11,6 @@
 
 尽可能优化了的邮箱输入框
 [demo](https://eragon-zh.github.io/Front-end-Web/Day17%20js/email%20input.html)
+
+MIS v1.0
+[demo](https://eragon-zh.github.io/Front-end-Web/Day31%20MIS_1/index.html)
