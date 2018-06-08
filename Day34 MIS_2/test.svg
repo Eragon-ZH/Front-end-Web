@@ -1,0 +1,32 @@
+<svg version="1.1" baseProfile="full" width="100%" height="100%"
+    xmlns="http://www.w3.org/2000/svg">
+
+    <!-- 线 矩形 圆 文本 -->
+    <!-- <line x1="0" y1="0" x2="200" y2="200" stroke="rgb(200,200,200)"/>
+    <rect x="0" y="200" width="300" height="300" style="stroke:rgb(200,200,200)" />
+    <circle x="0" y="500" cx="100" cy="600" r="50" stroke="black" />
+    <text x="0" y="700" stroke="rgb(158,241,18)">aaa</text> -->
+
+    <!-- 一朵花 -->
+    <!-- <line x1="300" y1="300" x2="300" y2="800" stroke="black"/>
+    <circle cx="200" cy="200" r="100" fill="yellow" />
+    <circle cx="400" cy="200" r="100" fill="yellow" />
+    <circle cx="200" cy="400" r="100" fill="yellow" />
+    <circle cx="400" cy="400" r="100" fill="yellow" />
+    <circle cx="300" cy="300" r="100" fill="red" />
+    <ellipse cx="150" cy="550" rx="150" ry="40"
+        x-axis-rotation="30"
+        style="fill:green;
+        stroke:rgb(0,0,100);stroke-width:2" />
+    <ellipse cx="450" cy="550" rx="150" ry="40"
+        style="fill:green;
+        stroke:rgb(0,0,100);stroke-width:2"/> -->
+
+    <!-- 一棵树 -->
+    <!-- <rect x="230" y="400" width="140" height="500" style="fill:rgb(107, 67, 43)" />
+    <circle  cx="300" cy="400" r="150" fill="green" />
+    <circle  cx="150" cy="400" r="150" fill="green" />
+    <circle  cx="450" cy="400" r="150" fill="green" />
+    <circle  cx="300" cy="250" r="150" fill="green" /> -->
+
+</svg>
