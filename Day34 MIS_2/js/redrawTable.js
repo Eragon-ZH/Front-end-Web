@@ -1,5 +1,5 @@
 // 重绘表格
-function redraw(data) {
+function redrawTable(data) {
     tableWrapper.innerHTML = "";
     var table = document.createElement("table");
     var tr = document.createElement("tr");
@@ -33,4 +33,10 @@ function redraw(data) {
     }
     // 将同名的合并
     mergeTable(1,0);
+    // 为新绘制的表格添加事件
+    var trList = document.querySelectorAll("tr");
+    for ( let i=1; i<trList.length; i++ ){
+        trList[i].onmouseover = redrawChart;
+    }
+    document.querySelector("table").onmouseout = redrawLineChart;
 }

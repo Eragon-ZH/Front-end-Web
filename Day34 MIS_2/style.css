@@ -9,12 +9,17 @@
 table {
     border-collapse: collapse;
     text-align: center;
+    margin-top: 50px;
 }
 td, th {
     width: 80px;
     height: 18px;
     border: 1px solid rgba(0,0,0,0.3);
 }
-#svg {
-    margin-top: 10px;
+#histogram {
+    margin-top: 50px;
+    margin-right: 80px;
+}
+#linechart {
+    margin-bottom: 50px;
 }

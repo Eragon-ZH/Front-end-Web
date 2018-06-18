@@ -1,3 +1,4 @@
+// 绘制直方图
 function createXY() {
     let svg = document.getElementById("histogram");
     x = document.createElementNS("http://www.w3.org/2000/svg","line");
@@ -24,13 +25,11 @@ function createRect(x, height, rate) {
     re.setAttribute("fill", "rgb(96,172,252)");
     return re
 }
-function drawHistogram() {
+function drawHistogram(data) {
     createXY();
-    let data = [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270];
     let svg = document.getElementById("histogram");
     let max = Math.max.apply(null,data);
     let rate = 280/max;
-    console.log(max,rate);
     for ( var i=0; i<12; i++ ){
         let re = createRect( 40*i+5, data[i], rate );
         svg.appendChild(re);

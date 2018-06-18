@@ -21,8 +21,9 @@ function clickFun(ev) {
                 target.checked = true;
             }
         }
-        // 获取数据 重绘表格
-        data = getData();
-        redraw(data);
+        // 获取数据 重绘图表
+        redrawTable(getData());
+        redrawLineChart(getData());
+        // console.log(data);
     }
 }
