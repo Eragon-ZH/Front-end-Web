@@ -1,20 +1,22 @@
 var tableWrapper = document.getElementById("table-wrapper");
 var regionList = [];
 var productList = [];
+var chartHeight = 300;
 
 window.onclick = clickFun;
 
 window.onload = function() {
-    data = getData();
+    let data = getData();
     // 绘制图表
     redrawTable(data);
-    drawHistogram([80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]);
-    drawLineChart([80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200],"#60acfc");
+    data = cleanData(data);
+    let rate = (chartHeight-20)/maxData(data);
+    redrawChartAll();
     // 添加鼠标事件
     var trList = document.querySelectorAll("tr");
     for ( let i=1; i<trList.length; i++ ){
-        trList[i].onmouseover = redrawChart;
+        trList[i].onmouseover = redrawChartSingle;
     }
     var table = document.querySelector("table");
-    table.onmouseout = redrawLineChart;
+    table.onmouseout = redrawChartAll;
 }

@@ -23,7 +23,7 @@ function clickFun(ev) {
         }
         // 获取数据 重绘图表
         redrawTable(getData());
-        redrawLineChart(getData());
+        redrawChartAll();
         // console.log(data);
     }
 }

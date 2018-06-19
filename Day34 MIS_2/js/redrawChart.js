@@ -1,26 +1,41 @@
-// 选项更改时，重绘所有图
-function redrawChart() {
+// 鼠标滑过，用鼠标数据绘图
+function redrawChartSingle() {
     let tdList = this.cells;
     let data = [];
     for ( let j=2; j<tdList.length; j++ ){
-        data.push(tdList[j].innerHTML);
+        data.push(parseInt(tdList[j].innerHTML));
     }
     // console.log(data);
     document.getElementById("histogram").innerHTML="";
     let ctx = document.getElementById("line-chart").getContext("2d");
-    ctx.clearRect(0,0,500,300);
-    drawHistogram(data);
-    drawLineChart(data,"#60acfc");
+    ctx.clearRect(0,0,500,chartHeight);
+    let rate = (chartHeight-20)/maxData(data);
+
+    drawHistogram(data, rate, 1, 0, "#60acfc");
+    drawLineChart(data,"#60acfc", rate);
 }
-// 鼠标滑过时，重绘折线图
-function redrawLineChart() {
-    let data = getData();
-    let color = [ "#60acfc", "#23c2db", "#3d6b2", "#dce459", "#feb64d",
-            "#fa816b", "#d1587f", "668ed6", "#ffe168"]
-    console.log(data);
+// 选项更改，用所有选中数据绘图
+function redrawChartAll() {
+    let data = cleanData(getData());
+    let rate = (chartHeight-20)/maxData(data)
+    let colors = [ "#60acfc", "#23c2db", "#63d6b2", "#dce459", "#feb64d",
+            "#fa816b", "#d1587f", "#668ed6", "#ffe168"]
+    // console.log("data",data);
     let ctx = document.getElementById("line-chart").getContext("2d");
-    ctx.clearRect(0,0,500,300);
+    ctx.clearRect(0,0,500,chartHeight);
     for ( let i=0; i<data.length; i++ ){
-        drawLineChart(data[i].slice(2), color[i]);
+        drawLineChart(data[i], colors[i], rate);
+    }
+
+    document.getElementById("histogram").innerHTML="";
+    let count = data.length;
+    if ( count>9 ) {
+        drawHistogram(data, rate, 1, 0, "#60acfc");
+        return;
+    }
+    else {
+        for ( let i=0; i<data.length; i++ ){
+            drawHistogram(data[i], rate, count, i, colors[i]);
+        }
     }
 }

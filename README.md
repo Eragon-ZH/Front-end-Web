@@ -14,3 +14,6 @@
 
 MIS v1.0
 [demo](https://eragon-zh.github.io/Front-end-Web/Day31%20MIS_1/index.html)
+
+MIS v2.0
+[demo](https://eragon-zh.github.io/Front-end-Web/Day34%20MIS_2/index.html)

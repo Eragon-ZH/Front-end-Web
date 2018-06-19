@@ -36,7 +36,7 @@ function redrawTable(data) {
     // 为新绘制的表格添加事件
     var trList = document.querySelectorAll("tr");
     for ( let i=1; i<trList.length; i++ ){
-        trList[i].onmouseover = redrawChart;
+        trList[i].onmouseover = redrawChartSingle;
     }
-    document.querySelector("table").onmouseout = redrawLineChart;
+    document.querySelector("table").onmouseout = redrawChartAll;
 }

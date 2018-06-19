@@ -28,3 +28,32 @@ function getData(region,product) {
     }
     return data;
 }
+// 清洗获取到的数据，只保留具体数据
+function cleanData(data) {
+    let newData = [];
+    for ( let i=0; i<data.length; i++ ){
+        let temp = [];
+        for ( let j=0; j<data[i].length; j++ ){
+            if ( isNaN(data[i][j]) == false ) {
+                temp.push(data[i][j])
+            }
+        }
+        newData.push(temp)
+    }
+    // console.log("newData",newData);
+    return newData;
+}
+// 获取数据中的最大值用来计算Rate
+function maxData(data) {
+    // 说明只有一组数据
+    let max
+    if ( data.length>9 ){
+        max = Math.max.apply(null, data);
+    }
+    // 多组数据
+    else{
+        max = Math.max.apply(null, data.map(Function.apply.bind(Math.max, null)));
+    }
+    // console.log(max);
+    return max;
+}
