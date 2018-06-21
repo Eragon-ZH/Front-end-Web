@@ -1,0 +1,25 @@
+#region-radio-wrapper {
+    display: inline;
+    float: left;
+    margin-right: 20px;
+}
+#product-radio-wrapper {
+    display: inline;
+}
+table {
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 50px;
+}
+td, th {
+    width: 80px;
+    height: 18px;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+#histogram {
+    margin-top: 50px;
+    margin-right: 80px;
+}
+#linechart {
+    margin-bottom: 50px;
+}
