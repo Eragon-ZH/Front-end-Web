@@ -1,18 +1,21 @@
 // 鼠标滑过，用鼠标数据绘图
 function redrawChartSingle() {
-    let tdList = this.cells;
-    let data = [];
-    for ( let j=2; j<tdList.length; j++ ){
-        data.push(parseInt(tdList[j].innerHTML));
-    }
-    // console.log(data);
-    document.getElementById("histogram").innerHTML="";
-    let ctx = document.getElementById("line-chart").getContext("2d");
-    ctx.clearRect(0,0,500,chartHeight);
-    let rate = (chartHeight-20)/maxData(data);
+    // 不在输入数据状态才绘图
+    if ( document.querySelectorAll("button").length == 1 ) {
+        let tdList = this.cells;
+        let data = [];
+        for ( let j=2; j<tdList.length; j++ ){
+            data.push(parseInt(tdList[j].innerHTML));
+        }
+        // console.log(data);
+        document.getElementById("histogram").innerHTML="";
+        let ctx = document.getElementById("line-chart").getContext("2d");
+        ctx.clearRect(0,0,500,chartHeight);
+        let rate = (chartHeight-20)/maxData(data);
 
-    drawHistogram(data, rate, 1, 0, "#60acfc");
-    drawLineChart(data,"#60acfc", rate);
+        drawHistogram(data, rate, 1, 0, "#60acfc");
+        drawLineChart(data,"#60acfc", rate);
+    }
 }
 // 选项更改，用所有选中数据绘图
 function redrawChartAll() {

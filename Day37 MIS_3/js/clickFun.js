@@ -26,8 +26,8 @@ function clickFun(ev) {
         redrawChartAll();
         // console.log(data);
     }
-    // if ( target.nodeName.toLowerCase() !== "td" ||
-    //         target.nodeName.toLowerCase() !== "textarea" ) {
-    //     clearButton();
-    // }
+    if ( document.querySelectorAll("button").length > 1 &&
+        target.nodeName.toLowerCase() != "td" ) {
+            cancelButtonFun();
+    }
 }

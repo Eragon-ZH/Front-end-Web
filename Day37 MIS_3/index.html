@@ -48,7 +48,10 @@
             全选
         </label> <br>
     </div>
-    <p id="tip">鼠标滑过表格可查看对应柱状图和折线图</p>
+    <p id="tip">鼠标滑过表格可查看对应柱状图和折线图<br>
+        表格数据可修改，将存储在本地<br>
+        优先采用本地数据，点击“清空本地数据”按钮可清除本地数据</p>
+    <button id="clear" type="button" onclick=clearButtonFun()>清空本地数据</button>
     <svg version="1.1" baseProfile="full" width="500px" height="300px"
     xmlns="http://www.w3.org/2000/svg" id="histogram">
     </svg>
@@ -66,6 +69,7 @@
     <script src="./js/linechart.js"></script>
     <script src="./js/redrawChart.js"></script>
     <script src="./js/tableEdit.js"></script>
+    <script src="./js/saveData.js"></script>
     <script src="./js/clickFun.js"></script>
     <script src="./js/app.js"></script>
 </body>

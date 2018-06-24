@@ -5,6 +5,7 @@ function getData(region,product) {
     regionList = [];
     productList = [];
     var data = [];
+    var lsSourceData = JSON.parse(localStorage.getItem("sourceData"));
     // 获取选中的商品和地区的列表
     for ( var i=0; i<regionSelect.length; i++ ) {
         if ( regionSelect[i].checked && regionSelect[i].value != "全选" ) {
@@ -17,13 +18,38 @@ function getData(region,product) {
         }
     }
     // 获取所有包含选中商品和地区的数据
-    for ( i in sourceData ) {
-        if ( regionList.indexOf( sourceData[i].region ) != -1 &&
-            productList.indexOf( sourceData[i].product ) != -1 ) {
-            var temp = [];
-            temp.push( sourceData[i].product, sourceData[i].region );
-            temp = temp.concat( sourceData[i].sale );
-            data.push( temp );
+    // 感觉这段代码写得太傻逼了
+    // 遍历商品和地区列表
+    for ( let i=0; i<productList.length; i++ ) {
+        for ( let j=0; j<regionList.length; j++ ) {
+            let foundLs = false;
+            // 先从localstorage找相关数据
+            if ( lsSourceData != null ) {
+                for ( let k=0; k<lsSourceData.length; k++ ) {
+                    if ( lsSourceData[k].product == productList[i] &&
+                        lsSourceData[k].region == regionList[j] ) {
+                            let temp = [];
+                            temp.push( lsSourceData[k].product, lsSourceData[k].region );
+                            temp = temp.concat( lsSourceData[k].sale );
+                            data.push( temp );
+                            foundLs = true;
+                    }
+                    // console.log(data,foundLs);
+                }
+            }
+            // 找不到的话从data.js中找
+            if ( foundLs === false ) {
+                for ( let k=0; k<sourceData.length; k++ ) {
+                    if ( sourceData[k].product == productList[i] &&
+                        sourceData[k].region == regionList[j] ) {
+                            let temp = [];
+                            temp.push( sourceData[k].product, sourceData[k].region );
+                            temp = temp.concat( sourceData[k].sale );
+                            data.push( temp );
+                            break;
+                    }
+                }
+            }
         }
     }
     return data;

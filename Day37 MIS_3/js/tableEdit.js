@@ -1,19 +1,21 @@
+// 添加铅笔图标提示可编辑
 function pencilTip() {
     let pencil = document.createElement("img");
     pencil.setAttribute("src", "./img/pencil.png");
-    this.appendChild(pencil);
     pencil.style.position = "relative";
-    pencil.style.left = "10px";
+    pencil.style.left = "20px";
     pencil.style.top = "3px";
+    if ( this.querySelector("button") == null ) {
+        this.appendChild(pencil);
+    }
 }
-
 function clearPencil() {
     let pencil = document.querySelector("img");
     if ( pencil ) {
         pencil.parentNode.removeChild(pencil);
     }
 }
-
+// 添加按钮
 function addButton(ev) {
     // let ev = ev || window.event;
     let target = ev.target || ev.srcElement;
@@ -23,39 +25,31 @@ function addButton(ev) {
     ok.onclick = confirmButtonFun;
     cancel.onclick = cancelButtonFun;
     textarea.onkeydown = textareaFun;
-
     ok.innerHTML = "确认";
-    ok.style.display = "block";
-    ok.style.position = "relative";
-    ok.style.top = "-10px";
-    ok.style.left = "10px";
-
+    ok.style.marginRight = "20px";
     cancel.innerHTML = "取消"
-    cancel.style.display = "block";
-    cancel.style.position = "relative";
-    cancel.style.bottom = "-10px";
-    cancel.style.left = "10px";
-
-    if ( document.querySelector("button") == null
+    textarea.style.height = "15px";
+    if ( document.querySelectorAll("button").length == 1
         && target.nodeName.toLowerCase() !== "button" ) {
+        console.log(document.querySelectorAll("button").length);
         textarea.innerHTML = this.innerText;
         this.innerHTML = "";
-        this.insertBefore(ok,this.firstChild)
         this.appendChild(textarea);
+        this.appendChild(ok);
         this.appendChild(cancel);
         textarea.focus();
         textarea.select();
     }
-}
-
-function clearButton() {
-    clearPencil();
-    let buttons = document.querySelectorAll("button");
-    if ( buttons.length>0 ) {
-        for ( let i=0; i<buttons.length; i++ ) {
-            buttons[i].parentNode.removeChild(buttons[i]);
-        }
+    // 点击其他单元格相当于点击取消
+    else if ( document.querySelectorAll("button").length > 1 ) {
+        cancelButtonFun();
     }
+}
+// “清空本地数据”按钮
+function clearButtonFun() {
+    localStorage.clear();
+    redrawTable(getData());
+    redrawChartAll();
 }
 
 function confirmButtonFun() {
@@ -72,7 +66,7 @@ function confirmButtonFun() {
 function cancelButtonFun() {
     redrawTable(getData());
 }
-
+// 回车等于确定，esc等于取消
 function textareaFun() {
     if ( event.keyCode == 13 ) {
         confirmButtonFun();
@@ -80,43 +74,4 @@ function textareaFun() {
     if ( event.keyCode == 27 ) {
         cancelButtonFun();
     }
-}
-
-function saveData() {
-    let thList = document.querySelectorAll("tr");
-    let product, region
-    let sourceData = [];
-    for ( let i=1; i<thList.length; i++ ) {
-        let sales = [];
-        for ( let j=0; j<thList[i].cells.length; j++ ) {
-            if ( j == 0 ) {
-                if ( thList[i].cells[j].innerText == "手机" ||
-                    thList[i].cells[j].innerText == "笔记本" ||
-                    thList[i].cells[j].innerText == "智能音箱" ) {
-                    product = thList[i].cells[j].innerText;
-                }
-                else {
-                    region = thList[i].cells[j].innerText;
-                }
-            }
-            if ( j == 1 ) {
-                if ( thList[i].cells[j].innerText == "手机" ||
-                    thList[i].cells[j].innerText == "笔记本" ||
-                    thList[i].cells[j].innerText == "智能音箱" ) {
-                    product = thList[i].cells[j].innerText;
-                }
-                else {
-                    region = thList[i].cells[j].innerText;
-                }
-            }
-            if ( j>1 ) {
-                sales.push(thList[i].cells[j].innerText);
-            }
-        }
-        sourceData.push({"product":product,"region":region,"sales":sales});
-        // console.log("product=",product,"region=",region,"sales=",sales);
-    }
-    console.log(sourceData);
-    localStorage.setItem("sourceData",sourceData);
-    // console.log(localStorage.sourceData);
 }

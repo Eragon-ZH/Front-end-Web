@@ -25,8 +25,6 @@ function redrawTable(data) {
             td = document.createElement("td");
             td.innerHTML = data[i][j];
             if ( j>1 ) {
-                // 可修改内容
-                td.setAttribute("contentEditable", "true");
                 // 添加铅笔图标提示可点击编辑
                 // 点击后添加按钮用来确认或取消
                 td.onmouseover = pencilTip;

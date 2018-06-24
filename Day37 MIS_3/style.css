@@ -6,6 +6,9 @@
 #product-radio-wrapper {
     display: inline;
 }
+#clear {
+    display: block;
+}
 table {
     border-collapse: collapse;
     text-align: center;
