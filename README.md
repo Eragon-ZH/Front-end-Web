@@ -20,3 +20,6 @@ MIS v2.0   直方图和折线图
 
 MIS v3.0   数据的本地存储
 [demo](https://eragon-zh.github.io/Front-end-Web/Day37%20MIS_3/index.html)
+
+MIS v4.0   利用hash记录状态
+[demo](https://eragon-zh.github.io/Front-end-Web/Day39%20MIS_4/index.html)

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>testLocation</title>
+</head>
+<body>
+
+    <button id="a">A</button>
+    <button id="b">B</button>
+    <button id="c">C</button>
+
+    <button id="d">D</button>
+    <button id="e">E</button>
+    <button id="f">F</button>
+
+
+    <div id="contABC"></div>
+    <div id="contDEF"></div>
+
+    <script type="text/javascript">
+        function getStatus() {
+            let status = window.location.hash.slice(1);
+            return status;
+        }
+
+        function redrawCont() {
+            let cont = getStatus();
+            console.log(cont);
+            let divs = document.querySelectorAll("div");
+            divs[0].innerHTML = cont.slice(0,1);
+            divs[1].innerHTML = cont.slice(-1);
+        }
+
+        function addBtnFun() {
+            let buttons = document.querySelectorAll("button");
+            for ( let i=0; i<3; i++ ) {
+                buttons[i].onclick = function() {
+                    window.location.hash = this.innerHTML + window.location.hash.slice(-1);
+                }
+            }
+            for ( let i=3; i<6; i++ ) {
+                buttons[i].onclick = function() {
+                    window.location.hash = window.location.hash.slice(1,2) + this.innerHTML;
+                    // console.log(window.location.hash);
+                }
+            }
+        }
+
+        window.onhashchange = redrawCont;
+        window.onload = redrawCont;
+        window.addEventListener( "load", addBtnFun );
+
+    </script>
+</body>
+</html>
