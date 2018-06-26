@@ -31,7 +31,7 @@ function addButton(ev) {
     textarea.style.height = "15px";
     if ( document.querySelectorAll("button").length == 1
         && target.nodeName.toLowerCase() !== "button" ) {
-        console.log(document.querySelectorAll("button").length);
+        // console.log(document.querySelectorAll("button").length);
         textarea.innerHTML = this.innerText;
         this.innerHTML = "";
         this.appendChild(textarea);

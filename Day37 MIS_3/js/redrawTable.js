@@ -27,8 +27,8 @@ function redrawTable(data) {
             if ( j>1 ) {
                 // 添加铅笔图标提示可点击编辑
                 // 点击后添加按钮用来确认或取消
-                td.onmouseover = pencilTip;
-                td.onmouseout = clearPencil;
+                td.onmouseenter = pencilTip;
+                td.onmouseleave = clearPencil;
                 td.onclick = addButton;
             }
             tr.appendChild(td);
