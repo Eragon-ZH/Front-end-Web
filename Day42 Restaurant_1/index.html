@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant V1</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    function Restaurant(money, seats, staffs) {
+        this.cash = money;
+        this.seats = seats;
+        this.staffs = staffs;
+        this.hire = function (staff) {
+            this.staffs.push(staff);
+        }
+        this.fire = function (staff) {
+            if ( this.staffs.indexOf(staff) != -1 ) {
+                this.staffs.splice( this.staffs.indexOf(staff), 1 );
+            }
+        }
+    }
+
+    function Staff(id, name, salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    function Witer(id ,name, salary) {
+        Staff.call(this, id, name, salary);
+        this.work = function ( food ) {
+            if ( Arry.isArry(food) ) {
+                var foods = food;
+            }
+            else {
+                if ( foods.indexOf(food) != -1 ) {
+                    foods.splice( foods.indexOf(food), 1 );
+                }
+            }
+        }
+    }
+
+    function Cook(id, name, salary) {
+        Staff.call(this, id, name, salary);
+        this.work = function(food) {
+            // TODO: 
+        }
+    }
+
+    function Customer() {
+        this.eat = function () {
+            console.log("eatfood");
+        }
+        this.order = function ( ...foods ) {
+            console.log(foods);
+        }
+    }
+
+    function Food(name, cost, price) {
+        this.name = name;
+        this.cost = cost;
+        this.price = price;
+    }
+
+</script>
+
+</body>
+</html>
