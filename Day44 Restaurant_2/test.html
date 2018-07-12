@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    function singletonAccepter( args ){
+        //判断Universe.instance是否已存在实例
+        if(typeof singletonAccepter.instance === 'object'){
+            return singletonAccepter.instance;
+        }
+        this.name = args.name || 'Monkey';
+        this.age = args.age || 24;
+        singletonAccepter.instance = this;
+    };
+    singletonAccepter.prototype = {
+        constructor: singletonAccepter,
+        displayInfo: function(){
+            console.log('name: ' + this.name + '   age: ' + this.age);
+        }
+    };
+
+    a = {
+        name:'aa',
+        age:'11',
+    };
+    b = {
+        name:'bb',
+        age:'22'
+    }
+    
+    var c = new singletonAccepter(a);
+    var d = new singletonAccepter(b);
+    c.displayInfo();
+    d.displayInfo();
+
+
+    </script>
+</body>
+</html>

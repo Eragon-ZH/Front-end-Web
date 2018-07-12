@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant V2</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    function Restaurant(money, seats, staffs) {
+        this.cash = money;
+        this.seats = seats;
+        this.staffs = staffs;
+        this.hire = function (staff) {
+            this.staffs.push(staff);
+        }
+        this.fire = function (staff) {
+            if ( this.staffs.indexOf(staff) != -1 ) {
+                this.staffs.splice( this.staffs.indexOf(staff), 1 );
+            }
+        }
+    }
+
+    function Staff(id, name, salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    function Witer(id ,name, salary) {
+        if ( typeof Witer.instance === 'object' ) {
+            return Witer.instance;
+        }
+        Staff.call(this, id, name, salary);
+        Witer.instance = this;
+        this.takeOrder = function(food) {
+            this.orderFood = food;
+        }
+        this.dishUp = function() {
+            console.log('witer dishes up ' + this.orderFood.name );
+        }
+    }
+
+    function Cook(id, name, salary) {
+        if ( typeof Cook.instance === 'object' ) {
+            return Cook.instance;
+        }
+        Staff.call(this, id, name, salary);
+        Cook.instance = this;
+        this.cook = function(food) {
+            console.log('cook cooks food ' + food.name + ' cost ' + food.cost +
+                '$');
+        }
+    }
+
+    function Customer() {
+        if ( typeof Customer.instance === 'object' ) {
+            return Customer.instance;
+        }
+        this.orderFood = null;
+        Customer.instance = this;
+        this.eat = function () {
+            console.log("customer eats food " + this.orderFood.name);
+            delete this.orderFood;
+            Food.instance = undefined;
+        }
+        this.order = function() {
+            var rand = parseInt(Math.random()*10,10);
+            this.orderFood = new Food(foodList[rand])
+            // console.log(this.orderFood);
+            console.log('customer ordered ' + this.orderFood.name + ' price ' +
+                this.orderFood.price + '$');
+        }
+        this.leave = function() {
+            console.log('customer leaves');
+            Customer.instance = undefined;
+        }
+    }
+
+    function Food(args) {
+        if ( typeof Food.instance === 'object' ){
+            return Food.instance;
+        }
+        this.name = args.name;
+        this.cost = args.cost;
+        this.price = args.price;
+        Food.instance = this;
+    }
+
+    var foodList = [
+        { name:'Pork Lungs in Chili Sauce', cost:5, price:20 },
+        { name:'Stewed Pork Ball in Brown Sauce', cost:10, price:30 },
+        { name:'Grilled Lamb Leg', cost:8, price:25 },
+        { name:'Eight Delicacies Rice', cost:7, price:15 },
+        { name:'Pita Bread Soaked in Lamb Soup', cost:12, price:35 },
+        { name:'Tomato Slices with Sugar', cost:5, price:12 },
+        { name:'Beef Seasoned with Soy Sauce', cost:17, price:40 },
+        { name:'Duck Tongue Aspic', cost:25, price:50 },
+        { name:'Spicy Roast Beef', cost:6, price:20 },
+        { name:'Preserved Eggs in Ginger Sauce', cost:13, price:27 },
+    ]
+
+    for ( var i=0; i<10; i++ ) {
+        console.log('\ncustomer ' + (i+1));
+        customer = new Customer();
+        witer = new Witer();
+        cook = new Cook();
+
+        customer.order();
+        witer.takeOrder(customer.orderFood);
+        cook.cook(witer.orderFood);
+        witer.dishUp();
+        customer.eat();
+        customer.leave();
+        delete customer;
+    }
+
+</script>
+
+</body>
+</html>
