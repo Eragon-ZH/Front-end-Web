@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+</head>
+    <style media="screen">
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+
+<body>
+
+    <button type="button" name="button" onclick="show()">11111111</button>
+    <div id="div1">
+
+    </div>
+    <script type="text/javascript">
+
+        var display = true;
+        var div1 = document.getElementById('div1')
+        function show() {
+            display = !display;
+            console.log(display);
+            return new Promise(function(resolve, reject){
+                display?resolve():reject();
+            }).then(function(){
+                div1.style.display = 'block';
+            }).catch(function(){
+                div1.style.display = 'none';
+            })
+        }
+
+    </script>
+</body>
+
+</html>
