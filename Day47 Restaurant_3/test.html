@@ -23,20 +23,37 @@
     </div>
     <script type="text/javascript">
 
-        var display = true;
-        var div1 = document.getElementById('div1')
-        function show() {
-            display = !display;
-            console.log(display);
-            return new Promise(function(resolve, reject){
-                display?resolve():reject();
-            }).then(function(){
-                div1.style.display = 'block';
-            }).catch(function(){
-                div1.style.display = 'none';
+        // var display = true;
+        // var div1 = document.getElementById('div1')
+        // function show() {
+        //     display = !display;
+        //     console.log(display);
+        //     return new Promise(function(resolve, reject){
+        //         display?resolve():reject();
+        //     }).then(function(){
+        //         div1.style.display = 'block';
+        //     }).catch(function(){
+        //         div1.style.display = 'none';
+        //     })
+        // }
+        function sss() {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    console.log('aaaaaaaaa');
+                },1000);
+                resolve();
+            }).then(function () {
+                setTimeout(function () {
+                    console.log('bbbbbbb');
+                },1000)
+            }).then(function () {
+                setTimeout(function () {
+                    console.log('cccccccc');
+                },1000)
             })
         }
 
+        sss()
     </script>
 </body>
 

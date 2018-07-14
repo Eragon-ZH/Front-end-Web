@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 1000px;
+    height: 100%;
+}
+div {
+    width: 100px;
+    height: 130px;
+    display: inline-block;
+}
+#restaurantDiv {
+    width: 600px;
+    height: 300px;
+}
+#restaurantDiv div {
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+}
+#customerDiv {
+    background-image: url('./img/customer.png');
+    float: left;
+    color: red;
+}
+#cookDiv {
+    color: red;
+    background-image: url('./img/cook.png');
+    float: right;
+}
+#waiterDiv {
+    float: right;
+    background-image: url('./img/waiter.png');
+}
+#moneyDiv {
+    display: block;
+    float: right;
+    font-size: 30px;
+}
+#text {
+    width: 800px;
+    height: 600px;
+    overflow: auto;
+}
+#describe {
+    width: 400px;
+    position: absolute;
+    left: 0;
+    top: 150px;
+    display: block;
+}

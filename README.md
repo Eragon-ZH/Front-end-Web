@@ -23,3 +23,6 @@ MIS v3.0   数据的本地存储
 
 MIS v4.0   利用hash记录状态
 [demo](https://eragon-zh.github.io/Front-end-Web/Day39%20MIS_4/index.html)
+
+Restaurant v3.0   可视化的餐厅类
+[demo](https://eragon-zh.github.io/Front-end-Web/Day47%20Restaurant_3/index.html)

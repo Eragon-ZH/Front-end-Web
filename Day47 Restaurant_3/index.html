@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant V3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="restaurantDiv">
+    <div id="customerDiv"></div>
+    <div id="cookDiv"></div>
+    <div id="waiterDiv"></div>
+    <div id="describe">
+    <p>前一个顾客离开后才能添加新顾客</p>
+    <p>顾客点菜3个单位时间，点1~5个菜</p>
+    <p>每道菜烹饪1~5单位时间，waiter走动0.5单位时间</p>
+    <p>每道菜吃3个单位时间</p>
+    <p>单位时间1秒，初始资金1000</p></div>
+    </div>
+    <button type="button" name="button" onclick="newCustomer()">
+        new customer</button>
+    <div id="moneyDiv">1000</div>
+    <div id="text"></div>
+
+    <script src="./js/visual.js"></script>
+    <script src="./js/objects.js"></script>
+    <script src="./js/food.js"></script>
+    <script src="./js/main.js"></script>
+
+
+</body>
+</html>
